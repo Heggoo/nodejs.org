@@ -12,4 +12,5 @@ COPY  package*.json ./
 EXPOSE 3000
 
 # Start the application
-CMD ["npx", "turbo", "dev"]
+# CMD ["npx", "turbo", "dev"]
+CMD ["npm", "start"]
