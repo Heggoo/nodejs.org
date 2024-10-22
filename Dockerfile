@@ -5,8 +5,6 @@ WORKDIR /app
 
 # Copy the application code
 COPY . .
-RUN npm install 
-RUN npm run build
 
 # Expose port
 EXPOSE 3000
