@@ -10,17 +10,12 @@ pipeline {
         DOCKER_CREDENTIALS = 'dockerhub'
 	}
     stages {
-        stage('Fetch Code') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Heggoo/nodejs.org.git'
-            }
-        }
         stage('Install Dependencies'){
             steps{
                 sh 'npm install'
             }
         }
-        stage('Unit Build'){
+        stage('Build Code'){
             steps{
                 sh 'npm run build'
             }
