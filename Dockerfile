@@ -4,8 +4,8 @@ FROM node:18.20.4-alpine
 WORKDIR /app
 
 # Copy the application code
-COPY . .
-
+COPY  /apps/site/.next ./.next
+COPY  /apps/site/public ./public
 # Expose port
 EXPOSE 3000
 
