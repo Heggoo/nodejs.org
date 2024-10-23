@@ -4,8 +4,8 @@ pipeline {
             nodejs "node18.20.4"
     }
     environment {
-        DOCKER_IMAGE = 'abdelrahamnaliheggo/node.org'
-        IMAGE_TAG = "${DOCKER_IMAGE}:${BUILD_NUMBER}"
+        DOCKER_IMAGE = 'abdelrahamnaliheggo/nodejs.org'
+        IMAGE_TAG = "${DOCKER_IMAGE}:latest"
         // DockerHub credentials (Jenkins credentials ID)
         DOCKER_CREDENTIALS = 'dockerhub'
 	}
@@ -32,19 +32,19 @@ pipeline {
                 
             }
         }
-        // stage('Login to DockerHub & Push Image') {
-        //     steps {
-        //         script {
-        //             // Login to DockerHub using the credentials you set up in Jenkins
-        //             withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDENTIALS}", passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
-        //                 sh '''
-        //                 echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin ;\
-        //                 docker push ${IMAGE_TAG}
-        //                 ''' 
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Login to DockerHub & Push Image') {
+            steps {
+                script {
+                    // Login to DockerHub using the credentials you set up in Jenkins
+                    withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDENTIALS}", passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
+                        sh '''
+                        echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin ;\
+                        docker push ${IMAGE_TAG}
+                        ''' 
+                    }
+                }
+            }
+        }
 
     }
     post{
