@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-webapp
+  namespace: nodejs.org
+  
+  labels:
+    app: nodejs-webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-webapp
+  template:
+    metadata:
+      labels:
+        app: nodejs-webapp
+    spec:
+      containers:
+      - name: nodejs
+        image: abdelrahamnaliheggo/nodejs.org
+        imagePullPolicy: IfNotPresent 
+        ports:
+        - containerPort: 3000
+        # Give resources as you want
+        # Recommended if you test on minikube 
+        # requests:
+        #     memory: "2Gi"
+        #     cpu: "1"
+        #   limits:
+        #     memory: "3Gi"
+        #     cpu: "2"  
+        # resources:
+        #   requests:
+        #     memory: "1Gi"
+        #     cpu: "0.5"
+        #   limits:
+        #     memory: "2Gi"
+        #     cpu: "1"  
