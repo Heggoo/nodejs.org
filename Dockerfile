@@ -9,7 +9,7 @@ COPY apps/site/public/ public/
 COPY node_modules/ node_modules/
 COPY package.json package.json
 COPY package-lock.json package-lock.json
-Copy turbo.json turbo.json
+COPY turbo.json turbo.json
 
 # Expose port
 EXPOSE 3000
