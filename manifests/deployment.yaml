@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodejs-webapp
-  namespace: nodejs.org
+  namespace: nodejsorg
   
   labels:
     app: nodejs-webapp
