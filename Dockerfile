@@ -3,7 +3,7 @@ FROM node:18.20.4-alpine
 # Set working directory
 WORKDIR /app
 
-# Copy the application code
+# Copy the application necessary files
 COPY apps/site/.next/ .next/
 COPY apps/site/public/ public/
 COPY node_modules/ node_modules/
