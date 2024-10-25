@@ -62,3 +62,5 @@ Before setting up the ArgoCD application, ensure the following tools and compone
    minikube service -n nodejsorg list
    ```
    Copy the url of the service and open it in you browser.   
+
+![Screenshot 2024-10-25 154706](https://github.com/user-attachments/assets/67118a99-b39d-44bb-868e-07f26877fb2b)
